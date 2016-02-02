@@ -1,8 +1,8 @@
 ////Project1-COLLA.java
 ////by: Ana Collantes
 
-float x,y;                      ////hero coordinates
-float dx,dy;                    ////hero speed
+float humanX,humanY;                      ////hero coordinates
+float humandx,humandy;                    ////hero speed
 
 float grass;
 float sunX,sunY;
@@ -21,9 +21,9 @@ void reset() {
 void draw() {
   background(211,255,252);        /////sky 
   scene();
-  //action();
+  action();
   //show();
-  //messages();
+  messages();
 }
 
 void scene(){
@@ -89,10 +89,51 @@ void scene(){
 
   ///////HERO......
   rectMode(CORNER);
-  fill(178,222,98);
-  rect(x,y,40,50);
-
+  fill(211,94,64);
+  noStroke();
+  rect(humanX,humanY,25,40);                           ////body
+  fill(250,223,189);
+  stroke(250,209,159);
+  ellipse(humanX+12,humanY-12,25,25);                  ////head
+  fill(255);
+  ellipse(humanX+6,humanY-16,13,13);
+  ellipse(humanX+18,humanY-16,13,13);
+  fill(0);
+  noStroke();
+  ellipse(humanX+5,humanY-16,6,6);                     ////eyes
+  ellipse(humanX+18,humanY-16,6,6);
+  fill(62,60,59);
+  ellipse(humanX+12,humanY-4,5,5);
+  
+}
   //sunX=sunX+sunDX;
+ /* if (sunX>width) {
+  sunX=3;
+}
+  sunX=sunX+1;
+  sunY=40;
+
+
+ if (humanY>height) {     /////HERO MOVE UP TO DOWN////
+  humanY=3;
+}
+  humanY=humanY+1;
+  humanY=210;
+
+/*if (humanX>width) {     /////HERO MOVE LEFT TO RIGHT////
+  humanX=600;
+}
+  humanX=humanX+1;
+  humanX=600;
+}
+*/
+
+
+void action  () {
+  humanX=humanX + (mouseX-humanX) /15;             /////MOVES HERO 
+  humanY=humanY+(mouseY-humanY)/15;
+
+ //sunX=sunX+sunDX;
   if (sunX>width) {
   sunX=3;
 }
@@ -100,13 +141,28 @@ void scene(){
   sunY=40;
 
 
-  if (y>height) {     /////HERO MOVE LEFT TO RIGHT////
-  y=3;
+/* if (humanY>height) {     /////HERO MOVE LEFT TO RIGHT////
+  humanY=3;
 }
-  y=y+1;
-  y=310;
+  humanY=humanY+1;
+  humanY=210;
+*/
+
+if (humanX > width) {          ////******MOVES CREATURE LEFT,UP,DOWN,RIGHT*******/////
+    humanX=  0;
+    
+  }
+  humanX=  humanX + 1;
+  // Move the creature.
+  humanX=  humanX + humandx;
+  humanY=  humanY + humandy;
+
 }
 
+void messages() {
+  fill(0);
+  text("Kai", humanX+3,humanY+10, 45,45);
+}
 /*void mousePressed() {
   reset();
   x=mouseX;
