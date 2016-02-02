@@ -1,0 +1,114 @@
+////Project1-COLLA.java
+////by: Ana Collantes
+
+float x,y;                      ////hero coordinates
+float dx,dy;                    ////hero speed
+
+float grass;
+float sunX,sunY;
+
+void setup () {
+  size(800,600);
+  grass= height/2.5;
+}
+
+void reset() {
+  //sunY=50;
+ 
+ 
+}
+
+void draw() {
+  background(211,255,252);        /////sky 
+  scene();
+  //action();
+  //show();
+  //messages();
+}
+
+void scene(){
+  fill(150,209,145);                    ///grass
+  rectMode(CORNERS);
+  stroke(0);
+  rect(0,grass,width, height);
+
+  fill(244,255,93);                     ///sun
+  noStroke();
+  ellipse(sunX,sunY,30,30);
+  stroke(220,232,59);
+  ///up--down (rayos)
+  line(sunX,sunY-16,sunX,sunY-24);
+  line(sunX,sunY+16,sunX,sunY+24);
+  ///left--right (rayos)
+  line(sunX-16,sunY,sunX-24,sunY);
+  line(sunX+16,sunY,sunX+24,sunY);
+  //smaller ones-- right side
+  line(sunX+10,sunY-11,sunX+18,sunY-18);
+  line(sunX+10,sunY+11,sunX+18,sunY+18);
+  //smaller ones-- left side
+  line(sunX-10,sunY-11,sunX-18,sunY-18);
+  line(sunX-10,sunY+11,sunX-18,sunY+18);
+
+  fill(196,165,247);                    ///house
+  stroke(167,117,247);
+  rect(20,190,200 ,330);
+  triangle(20,190,113,140, 200,190);
+
+  stroke(255);                         ///windows
+  fill(168,214,213);
+  rect(40,210,90,240);              ///left
+  rect(130,210,180,240);            ///right
+  stroke(255);
+  line(40,225,90,225);              ///left
+  line(65,210,65,240);
+  line(130,225,180,225);            ///right
+  line(155,210,155,240);
+
+  fill(61,62,62);                   ///door
+  noStroke();
+  rect(90,280,130,329);
+
+  fill(100,80,60);                  ///trees
+  rect(310,180,330,290);
+  fill(81,129,84);
+  ellipse(320,175,60,60);
+  fill(100,80,60);
+  rect(460,200,480,250);
+  fill(81,129,84);
+  ellipse(470,185,50,50);
+  fill(100,80,60);
+  rect(670,220,690,350);
+  fill(81,129,84);
+  ellipse(680,200,70,70);
+
+
+  /////////GOLD....
+  fill(245,255,116);
+  stroke(250,255,185);
+  ellipse(mouseX,mouseY, 20,20);
+
+  ///////HERO......
+  rectMode(CORNER);
+  fill(178,222,98);
+  rect(x,y,40,50);
+
+  //sunX=sunX+sunDX;
+  if (sunX>width) {
+  sunX=3;
+}
+  sunX=sunX+1;
+  sunY=40;
+
+
+  if (y>height) {     /////HERO MOVE LEFT TO RIGHT////
+  y=3;
+}
+  y=y+1;
+  y=310;
+}
+
+/*void mousePressed() {
+  reset();
+  x=mouseX;
+  y=mouseY;
+} */
