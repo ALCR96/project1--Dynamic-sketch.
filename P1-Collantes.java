@@ -3,6 +3,8 @@
 
 float humanX,humanY;                      ////hero coordinates
 float humandx,humandy;                    ////hero speed
+float goldX, goldY;
+
 
 float grass;
 float sunX,sunY;
@@ -14,6 +16,8 @@ void setup () {
 
 void reset() {
   //sunY=50;
+  goldX=width/2;
+  goldY= height/2;
  
  
 }
@@ -85,7 +89,7 @@ void scene(){
   /////////GOLD....
   fill(245,255,116);
   stroke(250,255,185);
-  ellipse(mouseX,mouseY, 20,20);
+  ellipse(goldX,goldY, 20,20);
 
   ///////HERO......
   rectMode(CORNER);
@@ -130,8 +134,8 @@ void scene(){
 
 
 void action  () {
-  humanX=humanX + (mouseX-humanX) /15;             /////MOVES HERO 
-  humanY=humanY+(mouseY-humanY)/15;
+  humanX=humanX + (goldX-humanX) /5;             /////MOVES HERO 
+  humanY=humanY+(goldY-humanY)/5;
 
  //sunX=sunX+sunDX;
   if (sunX>width) {
@@ -156,6 +160,23 @@ if (humanX > width) {          ////******MOVES CREATURE LEFT,UP,DOWN,RIGHT******
   // Move the creature.
   humanX=  humanX + humandx;
   humanY=  humanY + humandy;
+
+
+
+if (goldX > width) {          ////******MOVES GOLD LEFT,UP,DOWN,RIGHT*******/////
+    goldX=  0;
+    
+  }
+  goldX=  goldX + 2;
+
+if (goldY > height) {          ////******MOVES GOLD LEFT,UP,DOWN,RIGHT*******/////
+    goldY=  width/3;           ////## MOVES ONLY IN THE GRASS
+    
+  }
+  goldY=  goldY + 2;
+
+
+
 
 }
 
