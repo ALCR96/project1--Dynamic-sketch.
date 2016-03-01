@@ -188,3 +188,9 @@ void messages() {
   x=mouseX;
   y=mouseY;
 } */
+void keyPressed() {
+  if (key == 'q')
+  { 
+    exit();
+  }
+}
