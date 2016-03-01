@@ -1,8 +1,8 @@
 ////Project1-COLLA.java
 ////by: Ana Collantes
 
-float humanX,humanY;                      ////hero coordinates
-float humandx,humandy;                    ////hero speed
+float boyX,boyY;                      ////hero coordinates
+float boydx,boydy;                    ////hero speed
 float goldX, goldY;
 
 
@@ -18,6 +18,8 @@ void reset() {
   //sunY=50;
   goldX=width/2;
   goldY= height/2;
+ 
+ 
  
  
 }
@@ -95,19 +97,19 @@ void scene(){
   rectMode(CORNER);
   fill(211,94,64);
   noStroke();
-  rect(humanX,humanY,25,40);                           ////body
+  rect(boyX,boyY,25,40);                           ////body
   fill(250,223,189);
   stroke(250,209,159);
-  ellipse(humanX+12,humanY-12,25,25);                  ////head
+  ellipse(boyX+12,boyY-12,25,25);                  ////head
   fill(255);
-  ellipse(humanX+6,humanY-16,13,13);
-  ellipse(humanX+18,humanY-16,13,13);
+  ellipse(boyX+6,boyY-16,13,13);
+  ellipse(boyX+18,boyY-16,13,13);
   fill(0);
   noStroke();
-  ellipse(humanX+5,humanY-16,6,6);                     ////eyes
-  ellipse(humanX+18,humanY-16,6,6);
+  ellipse(boyX+5,boyY-16,6,6);                     ////eyes
+  ellipse(boyX+18,boyY-16,6,6);
   fill(62,60,59);
-  ellipse(humanX+12,humanY-4,5,5);
+  ellipse(boyX+12,boyY-4,5,5);
   
 }
   //sunX=sunX+sunDX;
@@ -116,14 +118,11 @@ void scene(){
 }
   sunX=sunX+1;
   sunY=40;
-
-
  if (humanY>height) {     /////HERO MOVE UP TO DOWN////
   humanY=3;
 }
   humanY=humanY+1;
   humanY=210;
-
 /*if (humanX>width) {     /////HERO MOVE LEFT TO RIGHT////
   humanX=600;
 }
@@ -134,8 +133,8 @@ void scene(){
 
 
 void action  () {
-  humanX=humanX + (goldX-humanX) /5;             /////MOVES HERO 
-  humanY=humanY+(goldY-humanY)/5;
+  boyX=boyX + (goldX-boyX) /5;             /////MOVES HERO 
+  boyY=boyY+(goldY-boyY)/5;
 
  //sunX=sunX+sunDX;
   if (sunX>width) {
@@ -152,14 +151,14 @@ void action  () {
   humanY=210;
 */
 
-if (humanX > width) {          ////******MOVES CREATURE LEFT,UP,DOWN,RIGHT*******/////
-    humanX=  0;
+if (boyX > width) {          ////******MOVES CREATURE LEFT,UP,DOWN,RIGHT*******/////
+    boyX=  0;
     
   }
-  humanX=  humanX + 1;
+  boyX=  boyX + 1;
   // Move the creature.
-  humanX=  humanX + humandx;
-  humanY=  humanY + humandy;
+  boyX=  boyX + boydx;
+  boyY=  boyY + boydy;
 
 
 
@@ -182,7 +181,7 @@ if (goldY > height) {          ////******MOVES GOLD LEFT,UP,DOWN,RIGHT*******///
 
 void messages() {
   fill(0);
-  text("Kai", humanX+3,humanY+10, 45,45);
+  text("Kai", boyX+3,boyY+10, 45,45);
 }
 /*void mousePressed() {
   reset();
