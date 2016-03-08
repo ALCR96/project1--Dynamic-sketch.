@@ -182,6 +182,7 @@ if (goldY > height) {          ////******MOVES GOLD LEFT,UP,DOWN,RIGHT*******///
 void messages() {
   fill(0);
   text("Kai", boyX+3,boyY+10, 45,45);
+  text("Ana Collantes", 20,550);
 }
 /*void mousePressed() {
   reset();
