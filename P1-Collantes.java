@@ -4,7 +4,7 @@
 float boyX,boyY;                      ////hero coordinates
 float boydx,boydy;                    ////hero speed
 float goldX, goldY;
-
+float score;
 
 float grass;
 float sunX,sunY;
@@ -30,6 +30,7 @@ void draw() {
   action();
   //show();
   messages();
+  gold();
 }
 
 void scene(){
@@ -89,9 +90,9 @@ void scene(){
 
 
   /////////GOLD....
-  fill(245,255,116);
-  stroke(250,255,185);
-  ellipse(goldX,goldY, 20,20);
+  //fill(245,255,116);
+  ///stroke(250,255,185);
+  ///ellipse(goldX,goldY, 20,20);
 
   ///////HERO......
   rectMode(CORNER);
@@ -130,6 +131,20 @@ void scene(){
   humanX=600;
 }
 */
+void gold() {
+    /////////GOLD....
+  fill(245,255,116);
+  stroke(250,255,185);
+  ellipse(goldX,goldY, 20,20);
+  
+  if (dist(boyX,boyY,goldX,goldY)<5) {
+    score=score+100;
+    goldX=random(width/2,width);
+    goldY=random(grass,height);
+    boyX=random(0,width/2);
+    boyY=random(grass,height/2);
+  }
+}
 
 
 void action  () {
@@ -183,6 +198,8 @@ void messages() {
   fill(0);
   text("Kai", boyX+3,boyY+10, 45,45);
   text("Ana Collantes", 20,550);
+  
+  text("score =", 640,20);
 }
 /*void mousePressed() {
   reset();
