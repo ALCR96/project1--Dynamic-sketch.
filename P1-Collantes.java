@@ -4,7 +4,7 @@
 float boyX,boyY;                      ////hero coordinates
 float boydx,boydy;                    ////hero speed
 float goldX, goldY;
-float score;
+int score;
 
 float grass;
 float sunX,sunY;
@@ -199,7 +199,7 @@ void messages() {
   text("Kai", boyX+3,boyY+10, 45,45);
   text("Ana Collantes", 20,550);
   
-  text("score =", 640,20);
+  text("score ="+ score, 640,20);
 }
 /*void mousePressed() {
   reset();
